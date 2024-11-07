@@ -195,8 +195,10 @@ void DrawTable(const TableAttrs& tableAttrs, uint8_t** outputImgBufferPtr, size_
             int32_t r = (tableAttrs.cellAttr[i].borderAttr.borderColor & 0xFF0000) >> 16;
             borderThickness = tableAttrs.cellAttr[i].borderAttr.borderThickness;
             cv::Scalar borderColor(b, g, r, 255);
-            cv::rectangle(image, cv::Point(xStart, yStart), cv::Point(xStart + colWidth, yStart + rowHeight),
+            cv::rectangle(image, cv::Point(xStart, yStart), cv::Point(xStart + colWidth - 1, yStart + rowHeight - 1),
                           borderColor, borderThickness);
+            // printf("xStart is : %d, yStart is : %d, xend is : %d, yend : %d\n", 
+            //         xStart, yStart, xStart + colWidth - 1, yStart + rowHeight - 1);
         }
 
         // 绘制字体
