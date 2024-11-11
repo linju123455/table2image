@@ -55,10 +55,13 @@ int main()
     }
 
     SaveWorkBook(tableAttrs, "output.xlsx");
+    delete[] tableAttrs.cellAttr;
 
     TableAttrs loadTable;
     LoadWorkBook(loadTable, "../test.xlsx");
+    std::cout << "cols is : " << loadTable.columns << " rows is : " << loadTable.rows << std::endl;
 
     SaveWorkBook(loadTable, "testSave.xlsx");
+    delete[] loadTable.cellAttr;
     return 0;
 }

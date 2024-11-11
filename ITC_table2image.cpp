@@ -410,9 +410,11 @@ void LoadWorkBook(TableAttrs& tableAttrs, const std::string& loadFilename)
             }
             columnNumber++;
         }
+        tableAttrs.columns = columnNumber;
         columnNumber = 0;
         std::cout << std::endl;
         rowNumber++;
+        tableAttrs.rows = rowNumber;
     }
 }
 
